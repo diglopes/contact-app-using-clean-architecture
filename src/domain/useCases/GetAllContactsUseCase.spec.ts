@@ -1,10 +1,10 @@
 import { IContactEntity } from '../entities/IContactEntity'
-import { ContactRepository } from '../interfaces/repositories/IContactRepository'
+import { IContactRepository } from '../interfaces/repositories/IContactRepository'
 import { GetAllContactsUseCase } from './GetAllContactsUseCase'
 
 describe("Get All Contacts Use Case", () => {
 
-    class MockContactRepository implements ContactRepository {
+    class MockContactRepository implements IContactRepository {
         createContact(contact: IContactEntity): Promise<boolean> {
             throw new Error("Method not implemented.");
         }
@@ -12,7 +12,7 @@ describe("Get All Contacts Use Case", () => {
             throw new Error("Method not implemented.");
         }
     }
-    let mockContactRepository: ContactRepository;
+    let mockContactRepository: IContactRepository;
 
     beforeEach(() => {
         jest.clearAllMocks();
